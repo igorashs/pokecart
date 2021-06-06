@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from 'shared/Header';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import Store from 'pages/Store';
+import Cart from 'pages/Cart';
+import Home from 'pages/Home';
+import Checkout from 'pages/Checkout';
+import Summary from 'pages/Summary';
+import NotFound from 'pages/NotFound';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Header />
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/store">
+            <Store />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout />
+          </Route>
+          <Route exact path="/summary">
+            <Summary />
+          </Route>
+          <Route path="/404">
+            <NotFound />
+          </Route>
+
+          <Redirect to="/404" />
+        </Switch>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
