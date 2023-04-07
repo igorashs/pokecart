@@ -1,3 +1,3 @@
 # PokeCart (React)
 
-> - [Live Demo](https://vreau-ceai.vercel.app/) **SOON** :shipit:
+> - [Live Demo](#) **SOON** :shipit:
